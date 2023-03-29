@@ -3,7 +3,8 @@ const Schema = mongoose.Schema
 
 var Student = new Schema({
     name: String,
-    age: Number
+    age: Number,
+    grade: Number
 })
 
 module.exports = mongoose.model('students', Student)

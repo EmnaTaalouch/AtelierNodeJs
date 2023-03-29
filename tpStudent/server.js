@@ -13,6 +13,8 @@ mongoose.connect(dbConfig.mongo.uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
+
+// ajout student 
 app.post('/students', async (req, res) => {
   try {
     const student = await saveStudent(req.body);
@@ -22,6 +24,7 @@ app.post('/students', async (req, res) => {
   }
 });
 
+//  get student by name 
 app.get('/students/:name', async (req, res) => {
   try {
     const student = await findStudentByName(req.params.name);
@@ -35,6 +38,7 @@ app.get('/students/:name', async (req, res) => {
   }
 });
 
+// get student age > 18 
 app.get('/students', async (req, res) => {
   try {
     const students = await findStudentsOver18();
@@ -43,6 +47,13 @@ app.get('/students', async (req, res) => {
     res.status(500).send(error.message);
   }
 });
+
+
+// update student 
+
+// delete student 
+
+// add +2 to the students that their age > 18 
 
 app.listen(3000, () => {
   console.log('Server started on port 3000');
